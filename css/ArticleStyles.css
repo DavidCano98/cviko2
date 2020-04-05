@@ -1,0 +1,46 @@
+
+.flex_box{
+    display: flex;
+    background-color: #e2e2e2;
+    padding-top: 1rem;
+}
+
+#fest_velky{
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flexer_article{
+    display: block;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.logo{
+    width: 15vw;
+    height: auto;
+}
+
+#skore{
+    color: darkorange;
+    padding-top: 10%;
+    font-size: 10vw;
+}
+
+#podskore{
+    color: darkorange;
+    font-size: 3vw;
+}
+
+article{
+    font-size: 1rem;
+}
+
+p{
+    text-indent: 3%;
+}

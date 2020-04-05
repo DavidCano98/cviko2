@@ -1,0 +1,129 @@
+
+
+.form_flex{
+    display: flex;
+    width: 100%;
+    justify-content:space-evenly;
+}
+
+.form_container{
+    padding-left: 2%;
+}
+
+form {
+    background-color: #e2e2e2;
+    width: 100%;
+}
+
+
+form input:required{
+    background: #ffe7cb;
+    border:rgb(255,128,0) 0.2vw solid
+}
+
+form input:required:valid{
+    background: #e6ebff;
+    border: rgb(26,47,130) 0.2vw solid;
+}
+
+textarea{
+    width: 90%;
+}
+
+form textarea:required{
+    background: #ffe7cb;
+    border:rgb(255,128,0) 0.2vw solid
+}
+
+form textarea:required:valid{
+    background: #e6ebff;
+    border: rgb(26,47,130) 0.2vw solid;
+
+}
+
+label{
+    font-size: 1.3em;
+}
+
+#main_thing{
+    margin-bottom: 2%;
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    padding-left: 2%;
+
+
+}
+
+.label_div{
+    background: rgb(26,47,130);
+    color: white;
+    font-size: 1.5em;
+}
+
+.the_rest{
+    margin-right: 2%;
+}
+
+fieldset{
+    border:none;
+    margin-top: 0.5em;
+}
+
+legend{
+    font-weight: bold;
+}
+
+button{
+    width: 100%;
+}
+
+#buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.invalid{
+    color: red;
+}
+
+.valid{
+    color: yellowgreen;
+}
+
+@media not all and (min-width: 600px) and (max-resolution: 1.8dppx){
+    .form_flex{
+        flex-direction: column;
+    }
+
+    .form_container + .form_container{
+        margin-left: 0;
+        margin-top: 2%;
+    }
+
+    form  p  input{
+        margin-left: 5%;
+    }
+
+    #form_output{
+        display: block;
+    }
+}
+
+@media not all and (max-width: 600px) and (max-resolution: 1.8dppx){
+
+    .form_container + .form_container{
+        margin-left: 2%;
+        margin-right: 2%;
+        border-left: grey 1px dashed;
+
+    }
+
+    form  p  input{
+        float: right;
+    }
+
+    #form_output{
+        margin-left: 1em;
+    }
+}

@@ -1,0 +1,70 @@
+body{
+    background-color: #f2f2f2;
+}
+
+.art-header{
+    background: rgb(26,47,130);
+    color: white;
+    line-height: 30%;
+    margin-top: 1%;
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    padding-left: 2%;
+    font-size: 2.5vw;
+}
+
+#art-scores_container{
+    background-color: #e2e2e2;
+    padding-bottom: 1%;
+}
+
+#art-scoreSubscore{
+    color: darkorange;
+}
+
+#art-score{
+    font-size: 10vw;
+}
+
+#art-subscore{
+    font-size: 3vw;
+}
+
+#art-scores_container img {
+    width: 15vw;
+    height: auto;
+    max-width: 100%;
+}
+
+.art-logoBox > b{
+    font-size: 3vw;
+}
+
+.navbar{
+    background-color: #1a2f82;
+    color: white;
+    margin-bottom: 2%;
+}
+
+.navbar .nav-item a{
+    color: white;
+}
+
+.container + .container{
+    margin-bottom: 1%;
+}
+
+#supisky{
+    margin-bottom: 2%;
+}
+
+p{
+    text-indent: 2em;
+}
+
+#main_pic{
+    width: 40%;
+    max-width: 100%;
+    height: auto;
+}
+

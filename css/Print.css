@@ -1,0 +1,121 @@
+
+a.fixed{
+    display: none;
+}
+
+header{
+    color: black;
+    text-align: center;
+}
+
+#skore{
+    color: black;
+}
+
+#podskore{
+    color: black;
+}
+
+hr{
+    display: none;
+}
+
+footer{
+    display: none;
+}
+
+body{
+    font-family: "Times New Roman", Times, serif;
+}
+
+image{
+    width: 300%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.kontakt_flexer{
+    display: inline;
+}
+
+.kontakt_box{
+    display: block;
+    font-size: 1em;
+    padding: 0;
+    margin-top: 3%;
+    background-color: #e2e2e2;
+    text-align: left;
+    border-radius: 1em;
+}
+
+.map_container{
+    display: none;
+}
+
+table{
+    color: black;
+    font-size: 1em;
+}
+
+caption{
+    font-size: 2em;
+    color: black;
+}
+
+th{
+    color: black;
+}
+
+#oznam > h1{
+    animation: none;
+}
+
+#oznam b{
+    color: black;
+}
+
+.obrazok{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+    width: 70%;
+    height: auto;
+}
+
+#menu_box{
+    flex-direction: column;
+}
+
+.button{
+    display: none;
+}
+
+table{
+    border-collapse: collapse;
+    margin-top: 5%;
+}
+
+form{
+    display: none;
+}
+
+#svg-container{
+    display: none;
+}
+
+#art-scoreSubscore *{
+    color: black;
+}
+
+.highlight{
+    color: black;
+    font-weight: bolder;
+}
+
+
+#FeedBackElement{
+    display: none;
+}
+

@@ -1,0 +1,52 @@
+.map_container{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e2e2e2;
+    border-radius: 2em;
+
+    padding: 2%;
+    font-size: 1.5em;
+}
+
+.mapa{
+    width: 92%;
+    margin-top: 2%;
+    height: 20vw;
+    margin-left: 3%
+}
+
+@media not all and (min-width: 600px) and (max-resolution: 1.8dppx){
+    .map_container{
+        width: 80%;
+    }
+
+    .mapa{
+        height: 50vw;
+    }
+}
+
+.kontakt_flexer{
+    margin-top: 3%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.kontakt_box{
+    font-size: 1em;
+    width: 250px;
+    padding: 2%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #e2e2e2;
+    text-align: center;
+    border-radius: 1em;
+}
+
+

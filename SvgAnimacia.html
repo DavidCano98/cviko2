@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG animacia</title>
+    <link rel="stylesheet" href="css/GeneralStyles.css">
+    <link rel="stylesheet" href="css/Animacia.css">
+</head>
+<body>
+<header>
+    <h1>Svg animácia</h1>
+</header>
+
+<figure class="container" id="svg-container">
+    <svg width="600" height="600" id="animation">
+        <polygon points="100,10 40,198 190,78 10,78 160,198"
+                 style="fill:white;stroke:black;stroke-width:5;fill-rule:evenodd;"/>
+        <circle cx="100" cy="300" r="20" fill="red" id="circ1"/>
+        <circle cx="100" cy="300" r="20" fill="yellow" id="circ2"/>
+        <circle cx="100" cy="300" r="20" fill="green" id="circ3"/>
+        <circle cx="100" cy="300" r="20" fill="blue" id="circ4"/>
+        <circle cx="100" cy="300" r="20" fill="pink" id="circ5"/>
+    </svg>
+    <br>
+    <button onclick="stopPlay()">Stop/Play</button>
+    <label for="speeder">Rýchlosť animácie: </label><input type="range" min="1" max="10" value="2" id="speeder"
+                                                           oninput="animationSpeed()">
+</figure>
+
+<nav>
+    <a href="index.html" class="fixed button menu_returner">
+        Návrat do menu
+    </a>
+</nav>
+
+<script>
+    function stopPlay() {
+        let animation = document.getElementById("animation");
+
+        for (const child of animation.children) {
+            if (child.style.animationPlayState === "paused") {
+                child.style.animationPlayState = "running";
+            } else {
+                child.style.animationPlayState = "paused";
+            }
+        }
+    }
+
+    function animationSpeed() {
+        const animation = document.getElementById("animation");
+        const slider = document.getElementById("speeder");
+
+        for (const child of animation.children) {
+            child.style.animationDuration =  (slider.max - slider.value + 1)/slider.max*2 + 's';
+        }
+    }
+</script>
+
+</body>
+</html>

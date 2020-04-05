@@ -1,0 +1,74 @@
+@media not all and (max-width: 600px) and (max-resolution: 1.8dppx){
+    table {
+        border-collapse: collapse;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    caption{
+        background-color: #1a2f82;
+        text-align: left;
+        font-size: 2.7rem;
+        padding: 7px;
+        margin-bottom: 1%;
+        color: white;
+    }
+
+    table + table {
+        margin-top: 3%;
+    }
+}
+
+@media not all and (min-width: 600px) and (max-resolution: 1.8dppx){
+    table {
+        border-collapse: collapse;
+        text-align: center;
+        margin-top: 3%;
+        font-size: 1rem;
+    }
+
+
+    caption{
+        background-color: #1a2f82;
+        text-align: left;
+        font-size: 1.5rem;
+        padding: 7px;
+        margin-bottom: 1%;
+        color: white;
+    }
+
+    table + table {
+            margin-top: 5%;
+        }
+}
+
+table th{
+    background-color: #1a2f82;
+}
+
+
+
+td{
+    height: 1.3em;
+}
+
+th{
+    height: 1.6em;
+    color: white;
+}
+
+td, th{
+    border: #202020 solid 1px;
+}
+
+tr:nth-child(even){
+    background-color: #eee;
+}
+
+tr:nth-child(odd){
+    background-color: #ffffff;
+}
+
+footer{
+    padding-top: 5%;
+}

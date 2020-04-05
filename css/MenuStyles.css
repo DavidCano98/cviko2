@@ -1,0 +1,159 @@
+@media not all and (max-width: 600px) and (max-resolution: 1.8dppx){
+    .article_button{
+        display: inline-flex;
+        align-items: center;
+
+        margin-left: 3%;
+        padding-right: 2%;
+        font-size: 1.5rem;
+        width: fit-content;
+    }
+
+    .obrazok{
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 50%;
+    }
+
+    #oznam{
+        font-size: 1.5rem;
+    }
+
+    .buttons{
+        width: 50%;
+        padding-right: 5%;
+    }
+}
+
+@media not all and (min-width: 600px) and (max-resolution: 1.8dppx){
+    .article_button{
+        display: inline-flex;
+        align-items: center;
+
+        margin-left: 15%;
+        padding-right: 5%;
+        font-size: 4vw;
+        width: fit-content;
+        max-width: 100%;
+    }
+
+    #menu_box{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .obrazok{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+        width: 80%;
+        height: auto;
+    }
+
+    #oznam {
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 1rem;
+    }
+
+    .buttons{
+        width: 90%;
+        padding-right: 5%;
+    }
+}
+
+
+.article_button img{
+    width: 1em;
+    padding: 0.3em;
+    height: auto;
+    visibility: visible;
+
+    transition: transform 1s;
+}
+
+.article_button:hover img{
+    width: 1em;
+    padding: 0.3em;
+    height: auto;
+    visibility: visible;
+
+    transform: rotate(360deg);
+}
+
+#oznam {
+    background-color: #e2e2e2;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 2%;
+    font-weight: bold;
+    text-align: center;
+}
+
+#oznam h2 {
+    text-align: center;
+    padding-top: 1%;
+    font-size: 2em;
+    animation-name: oznam_animation;
+    animation-timing-function: linear;
+    animation-duration: 0.3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.button_container + .button_container{
+    margin-top: 3%;
+}
+
+@keyframes oznam_animation {
+    0%{
+        color: black;
+    }
+    100%{
+        color: red;
+        transform: scale(1.1);
+        transform-origin: center;
+    }
+}
+
+#menu_box {
+    display: flex;
+}
+
+.feedbackContainer{
+    background-color: #e2e2e2;
+    border-radius: 1em;
+}
+
+.feedbackContainer h3{
+    color: white;
+    padding: 0.8%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    /*background: #8898D7;*/
+    background: rgb(26,47,130);
+}
+
+#form_stuff{
+    margin-bottom: 10%;
+}
+
+.feedbackContainer p{
+    padding:  1%;
+    line-height: 0.1em;
+}
+
+hr{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-bottom: none;
+    border-top: 1px #c2c2c2 solid;
+}
+
+.item + .item{
+    margin-top: 5%;
+}
+
+
