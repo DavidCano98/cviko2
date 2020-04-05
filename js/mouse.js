@@ -8,5 +8,7 @@ window.addEventListener("mousemove", function f(event) {
     const newDuration = String(window.innerWidth/event.clientX/4 + window.innerHeight/event.clientY/4) + 's';
     document.getElementById("duration").innerHTML = newDuration;
 
+
+
     logo.style.animationDuration =  newDuration;
 });
