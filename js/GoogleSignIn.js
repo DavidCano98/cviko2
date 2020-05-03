@@ -64,12 +64,12 @@ function userChanged(user){
 var updateSignIn = function() {
     var sgnd = auth2.isSignedIn.get();
     if (sgnd) {
-        document.getElementById("SignInButton").classList.add("hiddenElm");
-        document.getElementById("SignedIn").classList.remove("hiddenElm");
+        document.getElementById("SignInButton").classList.add("hidden");
+        document.getElementById("SignedIn").classList.remove("hidden");
         document.getElementById("userName").innerHTML=auth2.currentUser.get().getBasicProfile().getName();
     }else{
-        document.getElementById("SignInButton").classList.remove("hiddenElm");
-        document.getElementById("SignedIn").classList.add("hiddenElm");
+        document.getElementById("SignInButton").classList.remove("hidden");
+        document.getElementById("SignedIn").classList.add("hidden");
     }
 
     var userInfoElm = document.getElementById("userStatus");
