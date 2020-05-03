@@ -4,28 +4,17 @@ function renderUserInfo(googleUser, htmlElmId) {
     const profile = googleUser.getBasicProfile();
     const htmlStringSk=
         `
-            <p>PouĹľĂ­vateÄľ prihlĂˇsenĂ˝</p>
+            <p>Not logged in</p>
             <ul>
                 <li> ID: ${profile.getId()}
-                <li>  PlnĂ© meno: ${profile.getName()}
-                <li>  KrstnĂ© meno: ${profile.getGivenName()}
+                <li>  Celé meno: ${profile.getName()}
+                <li>  Krstné meno: ${profile.getGivenName()}
                 <li>  Priezvisko: ${profile.getFamilyName()}
-                <li>  URL obrĂˇzka: ${profile.getImageUrl()}
+                <li>  URL obrázka: ${profile.getImageUrl()}
                 <li>  Email: ${profile.getEmail()}
             </ul>
         `;
-    const htmlStringEn=
-        `
-            <p>User logged in.</p>
-            <ul>
-                <li> ID: ${profile.getId()}
-                <li>  Full name: ${profile.getName()}
-                <li>  Given name: ${profile.getGivenName()}
-                <li>  Family name: ${profile.getFamilyName()}
-                <li>  Image URL: ${profile.getImageUrl()}
-                <li>  Email: ${profile.getEmail()}
-            </ul>
-        `;
+
     //Id z profile.getId() sa nema pouzivat na komunikaciu s vlastnym serverom (you should not use the id from profile.getId() for communication with your server)
     document.getElementById("userStatus").innerHTML=htmlStringSk+htmlStringEn;
 }
@@ -33,9 +22,7 @@ function renderUserInfo(googleUser, htmlElmId) {
 function renderLogOutInfo(htmlElmId) {
     const htmlString=
         `
-                <p>PouĹľĂ­vateÄľ nie je prihlĂˇsenĂ˝</p>
-                <p>User not signed in</p>
-                `;
+                <p>"Používateľ neprihlásený˝</p>`;
     document.getElementById(htmlElmId).innerHTML=htmlString;
 }
 
