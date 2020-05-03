@@ -137,3 +137,11 @@ img{
     bottom: 20px;
     right: 20px;
 }
+
+.singleComment{
+    padding-right: 3%;
+}
+
+.singleComment + .singleComment{
+    border-top: #b0b0b0 2px dashed;
+}

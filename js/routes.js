@@ -179,7 +179,32 @@ function fetchAndDisplayArticles(targetElm, offsetFromHash, totalCountFromHash) 
                 articleList[index].content = article.content;
             });
 
+            return Promise.resolve();
+        })
+        .then(() =>{
+            let commRequests = articleList.map(
+                article => fetch(`${content_url}/${article.id}/comment`)
+            );
+            return Promise.all(commRequests);
+        })
+        .then(responses =>{
+            let failed="";
+            for(let response of responses) {
+                if(!response.ok) failed+=response.url+" ";
+            }
+            if(failed===""){
+                return responses;
+            }else{
+                return Promise.reject(new Error(`Failed to access the comments with urls ${failed}.`));
+            }
+        })
+        .then(responses => Promise.all(responses.map(resp => resp.json())))
+        .then(comments =>{
+            comments.forEach((artComments,index) =>{
+                let count = artComments.comments.length;
 
+                articleList[index].commentsText=wordForCount(count);
+            });
             return Promise.resolve();
         })
         .then(() => {
@@ -188,6 +213,18 @@ function fetchAndDisplayArticles(targetElm, offsetFromHash, totalCountFromHash) 
         .catch(error => {
             console.error(error)
         });
+}
+
+function wordForCount(count) {
+    if (count===1){
+        return `${count} komentár`
+    }
+    else if (count===2 || count === 3){
+        return `${count} komentáre`
+    }
+    else {
+        return `${count} komentárov`
+    }
 }
 
 function renderArticles(articles, target, offset) {
@@ -204,7 +241,6 @@ function renderArticles(articles, target, offset) {
     document.getElementById(target).innerHTML = Mustache.render(
         document.getElementById("template-articles").innerHTML, articles);
 
-    console.log(document.getElementById("backButton"));
 
     if (offset - perPage < 0) {
         document.getElementById("backButton").classList.toggle("hidden");
@@ -262,6 +298,7 @@ function deleteArticle(targetElm, artIdFromHash, offsetFromHash, totalCountFromH
 
 function fetchAndProcessArticle(targetElm, artIdFromHash, offsetFromHash, totalCountFromHash, forEdit) {
     const url = `${urlBase}/article/${artIdFromHash}`;
+    let article;
 
     fetch(url)
         .then(response => {
@@ -271,35 +308,63 @@ function fetchAndProcessArticle(targetElm, artIdFromHash, offsetFromHash, totalC
                 return Promise.reject(new Error(`Server answered with ${response.status}: ${response.statusText}.`));
             }
         })
-        .then(responseJSON => {
+        .then((responseJSON)=>{
+            article = responseJSON;
+
+            let commentsRequest = fetch(`${url}/comment`);
+            return commentsRequest;
+        })
+        .then(response =>{
+            if (response.ok){
+                return response;
+            }
+            else {
+                return Promise.reject(new Error(`Failed to access comments`));
+            }
+        })
+        .then(response =>{
+            let responseJSON = response.json();
+            return responseJSON;
+        })
+        .then((responseJSON)=>{
+            article.comments = responseJSON.comments;
+            return Promise.resolve();
+        })
+        .then(() => {
 
             if (forEdit) {
-                responseJSON.formTitle = "Article Edit";
-                responseJSON.formSubmitCall =
+                article.formTitle = "Article Edit";
+                article.formSubmitCall =
                     `processArtEditFrmData(event,${artIdFromHash},${offsetFromHash},${totalCountFromHash},'${urlBase}')`;
-                responseJSON.submitBtTitle = "Save article";
-                responseJSON.urlBase = urlBase;
+                article.submitBtTitle = "Save article";
+                article.urlBase = urlBase;
 
-                responseJSON.backLink = `#article/${artIdFromHash}/${offsetFromHash}/${totalCountFromHash}`;
-
+                article.backLink = `#article/${artIdFromHash}/${offsetFromHash}/${totalCountFromHash}`;
 
                 document.getElementById(targetElm).innerHTML =
                     Mustache.render(
                         document.getElementById("template-article-form").innerHTML,
-                        responseJSON
+                        article
                     );
 
             } else {
 
-                responseJSON.backLink = `#articles/${offsetFromHash}`;
-                responseJSON.editLink = `#artEdit/${responseJSON.id}/${offsetFromHash}/${totalCountFromHash}`;
-                responseJSON.deleteLink = `#artDelete/${responseJSON.id}/${offsetFromHash}/${totalCountFromHash}`;
+                article.backLink = `#articles/${offsetFromHash}`;
+                article.editLink = `#artEdit/${article.id}/${offsetFromHash}/${totalCountFromHash}`;
+                article.deleteLink = `#artDelete/${article.id}/${offsetFromHash}/${totalCountFromHash}`;
 
                 document.getElementById(targetElm).innerHTML =
                     Mustache.render(
                         document.getElementById("template-article").innerHTML,
-                        responseJSON
+                        article
                     );
+
+                console.log(article.comments.length);
+
+                if (article.comments.length===0){
+                    document.getElementById("commentSection").classList.add("hidden");
+                }
+
             }
 
 
