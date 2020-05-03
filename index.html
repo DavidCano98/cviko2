@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="author" content="David Cano"/>
-    <meta name="google-signin-client_id" content="703760847230-nordq8lh8360u0h3vu1umpnoa9rmvcju.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+          content="703760847230-nordq8lh8360u0h3vu1umpnoa9rmvcju.apps.googleusercontent.com">
 
     <link rel="stylesheet" href="css/GeneralStyles.css" media="screen"/>
     <link rel="stylesheet" href="css/FormStyles.css" media="screen"/>
@@ -17,9 +18,6 @@
 
 <aside id="googleSignIn">
     <div id="SignInButton"></div>
-    <div id="SignedIn">
-        Ste prihlásený ako (You are signed in as) <span id="userName"></span> <button onclick="signOut()">Odhlásiť sa / Sign Out</button>
-    </div>
 </aside>
 
 <div id="userStatus"></div>
@@ -37,6 +35,7 @@
             <a href="#opinions">Hodnotenia</a>
             <a href="#addOpinion">Pridaj hodnotenie</a>
             <a href="#artInsert">Pridaj článok</a>
+            <a href="#profile">Profil</a>
         </nav>
 
     </div>
@@ -87,7 +86,8 @@ adasd
         <div class="label_div">
             <h3>
                 <a href="{{detailLink}}">{{title}}</a>
-                <div style="font-size: 80%">by {{author}} <span style="float: right; margin-right: 2%">{{dateCreated}}</span></div>
+                <div style="font-size: 80%">by {{author}} <span
+                        style="float: right; margin-right: 2%">{{dateCreated}}</span></div>
             </h3>
         </div>
         <div class="contents">
@@ -357,9 +357,42 @@ adasd
     </article>
 
     <div class="articleButtons">
-        <a href="{{backLink}}" class="linkAsButton" ><< Back</a>
-        <a href="#menuTitle" class="linkAsButton" >Up to the menu</a>
+        <a href="{{backLink}}" class="linkAsButton"><< Back</a>
+        <a href="#menuTitle" class="linkAsButton">Up to the menu</a>
     </div>
+</script>
+
+
+<script id="template-login-info" type="text/template">
+    <article class="item">
+        <div class="label_div">
+            <h2>Profil <span id="loginStatus"></span></h2>
+
+        </div>
+
+        <p>
+            <b>Id používateľa:</b> {{id}}
+        </p>
+
+        <p>
+            <b>Celé meno:</b> {{fullName}}
+        </p>
+
+        <p>
+            <b>Krstné meno:</b> {{firstName}}
+        </p>
+
+        <p>
+            <b>Priezvisko:</b> {{lastName}}
+        </p>
+
+        <p>
+            <b>Email:</b> {{email}}
+        </p>
+
+        <button onclick="signOut()" id="SignedIn">Odhlásiť sa / Sign Out</button>
+    </article>
+
 </script>
 
 <script src="js/mustache.min.js"></script>
@@ -372,10 +405,11 @@ adasd
 
 <script src="js/handleArticleForms.js"></script>
 
-<script type="module" src="js/routerInit.js"></script>
-
 <script src="js/GoogleSignIn.js"></script>
 <script src="https://apis.google.com/js/platform.js?onload=startGSingIn" async defer></script>
+
+<script type="module" src="js/routerInit.js"></script>
+
 
 
 </body>

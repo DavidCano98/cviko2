@@ -1,6 +1,7 @@
 let auth2 = {};
 
 
+
 function renderUserInfo(googleUser, htmlElmId) {
     const profile = googleUser.getBasicProfile();
     const htmlStringSk=
@@ -31,6 +32,18 @@ function signOut() {
     if(auth2.signOut) auth2.signOut();
     if(auth2.disconnect) auth2.disconnect();
 
+}
+
+function getUserInfo(user) {
+    const profile = user.getBasicProfile();
+
+    return {
+        id: profile.getId(),
+        fullName: profile.getName(),
+        firstName: profile.getGivenName(),
+        lastName: profile.getFamilyName(),
+        email: profile.getEmail()
+    };
 }
 
 function userChanged(user){

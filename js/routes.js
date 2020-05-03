@@ -5,6 +5,8 @@ const perPage=20;
 let total = 0;
 let myTag = "HCKosice";
 
+
+
 export default[
     {
         //the part after '#' in the url (so-called fragment):
@@ -59,11 +61,23 @@ export default[
         hash:"artEdit",
         target:"router-view",
         getTemplate: editArticle
-    }
+    },
 
-
+    {
+        hash:"profile",
+        target:"router-view",
+        getTemplate: displayUserInfo
+    },
 
 ];
+
+function displayUserInfo(targetElm) {
+    let template = document.getElementById("template-login-info").innerText;
+    let dataToDisplay = getUserInfo();
+    console.log(dataToDisplay);
+
+    document.getElementById(targetElm).innerHTML = Mustache.render(template,dataToDisplay);
+}
 
 function addArtDetailLink2ResponseJson(responseJSON){
     responseJSON.articles =
