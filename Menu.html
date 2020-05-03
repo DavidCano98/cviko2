@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="css/GeneralStyles.css">
+    <link rel="stylesheet" type="text/css" href="css/MenuStyles.css">
+    <link rel="stylesheet" type="text/css" href="css/FormStyles.css">
+    <link rel="stylesheet" href="css/Print.css" media="print">
+
+</head>
+<body>
+<header>
+    <h1>Menu</h1>
+</header>
+<div id="oznam" class="item">
+    <h2>OZNAM</h2>
+    <b>
+        Oznamujeme vám, že kvôli situácii ohľadom nového koronavírusu rozhodol Slovenský zväz ľadového hokeja o <span class="highlight">predčasnom
+        ukončení sezóny 2019/2020</span>
+    </b>
+
+</div>
+
+<div id="menu_box" class="item">
+    <div class="buttons">
+        <div class="button_container">
+            <a href="Article%20bootstrap%20alt.html" class="article_button button">
+                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
+                HC Košice vs. HKM Zvolen (bootstrap verzia)
+            </a>
+        </div>
+
+        <div class="button_container">
+            <a href="MouseVisualisation.html" class="article_button button">
+                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
+                Vizulizácie myše(doplnková úloha)
+            </a>
+        </div>
+
+        <div class="button_container">
+            <a href="Zvolen_vs_KE.html" class="article_button button">
+                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
+                HC Košice vs. HKM Zvolen
+            </a>
+        </div>
+
+        <div class="button_container">
+            <a href="supiska.html" class="article_button button">
+                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
+                Súpiska
+            </a>
+        </div>
+
+        <div class="button_container">
+            <a href="Kontakt.html" class="article_button button">
+                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
+                Kontakt
+            </a>
+        </div>
+
+        <div class="button_container">
+            <a href="SvgAnimacia.html" class="article_button button">
+                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
+                Animacia(doplnujuce)
+            </a>
+        </div>
+    </div>
+
+    <img src="images/AR3I9727_0.jpg" width="1280" height="720" alt="menu obrazok" class="obrazok">
+</div>
+
+<div class="small item"  id="form_stuff">
+    <form id="rating">
+        <div class="label_div">
+            <h2 id="main_thing">Formulár pre spätnú väzbu <span id="form_output"></span>
+            </h2>
+        </div>
+
+        <div class="the_rest">
+            <div class="form_flex">
+                <div class="form_container">
+                    <p>
+                        <label for="name">Meno: </label>
+                        <input type="text" id="name" name="name" required>
+                    </p>
+                    <p>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="xxxx@xxxx.xx" required>
+                    </p>
+                    <p>
+                        <label for="pic_url">Obrázok:</label>
+                        <input type="url" id="pic_url" placeholder="URL adresa obrázka" name="pic_url">
+                    </p>
+                </div>
+                <fieldset class="form_container">
+                    <legend>Som:</legend>
+                    <input type="radio" id="fanusik" name="rola" value="Fanúšik">
+                    <label for="fanusik">Fanúšik HC Košice</label><br>
+                    <input type="radio" id="hrac" name="rola" value="Hráč">
+                    <label for="hrac">Hráč HC Košice</label><br>
+                    <input type="radio" id="novinar" name="rola" value="Novinár">
+                    <label for="novinar">Novinár</label><br>
+                    <input type="radio" id="ine" name="rola" value="Iné">
+                    <label for="ine">Iné</label>
+                </fieldset>
+
+                <fieldset class="form_container">
+                    <legend>Na stránke ma zaujalo:</legend>
+                    <input type="checkbox" id="clanky" name="zaujem" value="články">
+                    <label for="clanky">Články</label><br>
+                    <input type="checkbox" id="info" name="zaujem" value="informácie">
+                    <label for="info">Informácie o klube</label><br>
+                    <input type="checkbox" id="design" name="zaujem" value="design">
+                    <label for="design">Design</label><br>
+                </fieldset>
+            </div>
+
+            <div class="form_flex">
+                <div class="form_container">
+                    <br><label for="feedback">Komentár </label><br>
+                    <textarea name="feecback" id="feedback" rows="5" cols="50" placeholder="Tu zadaj komentár"
+                              required></textarea>
+                </div>
+
+                <div class="form_container">
+                    <label for="keyword">Kĺúčové slovo: </label>
+                    <input list="keywords" name="keyword" type="text" id="keyword">
+                    <datalist id="keywords">
+                        <option value="Hokej">
+                        <option value="Košice">
+                        <option value="Fanúšik">
+                        <option value="Koronavírus">
+                        <option value="Zápas">
+                    </datalist>
+                </div>
+
+                <div class="form_container" id="buttons">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<hr>
+
+
+<div id="FeedBackElement" class="item">
+    <div id="FeedbackContainer"></div>
+    <button onclick="delete_old_stuff()">Vymaž staré položky</button>
+</div>
+
+<script id="feedbackTemplate" type="text/template">
+    <div class="feedbackContainer">
+        <h3>{{name}} <small style="margin-left: 1%">{{role}}</small> <span style="float: right">{{createdDate}}</span></h3>
+        <p><b>Na stránke sa mi páči:</b> {{interest}}</p>
+        <p><b>Komentár:</b>
+            {{comment}}
+        </p>
+    </div>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"
+        integrity="sha256-MPgtcamIpCPKRRm1ppJHkvtNBAuE71xcOM+MmQytXi8="
+        crossorigin="anonymous">
+</script>
+<script src="js/process_form.js"></script>
+
+
+</body>
+</html>

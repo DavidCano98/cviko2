@@ -1,0 +1,124 @@
+.menu {
+    text-align: left;
+}
+
+#menuIts{
+    position:absolute;
+    padding: 0.5em;
+    max-width: 8em;
+    min-width: 7em;
+    background-color: rgb(26,47,130);
+
+    line-height: 100%;
+}
+
+#menuIts > a {
+    display: block;
+    color: white;
+    font-size: 0.7em;
+
+}
+
+#menuTitle{
+    border: 0;
+    outline:none;
+    background-color: rgb(26,47,130);
+    color: white;
+    font-size: 1em;
+}
+
+
+.mnHide {display:none;}
+
+.mnShow {display:block;}
+
+article{
+    background-color: #e2e2e2;
+}
+
+article >p{
+    padding: 0.5em 1em;
+}
+
+footer{
+    margin-top: 30%;
+}
+
+.feedbackContainer{
+    background-color: #e2e2e2;
+    border-radius: 1em;
+    padding-bottom: 0.5em;
+}
+
+.feedbackContainer > h3{
+    color: white;
+    padding: 0.8%;
+    /*background: #8898D7;*/
+    background: rgb(26,47,130);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+#form_stuff{
+    margin-bottom: 10%;
+}
+
+.feedbackContainer p{
+    padding:  1%;
+    line-height: 0.1em;
+}
+
+.articleContainer > .contents{
+    padding: 1em;
+    display: block;
+}
+
+img{
+    width: 100%;
+}
+
+.hidden{
+    display: none;
+}
+
+.label_div a {
+    color: inherit;
+}
+
+.form_div{
+    display: block;
+    width: 100%;
+}
+
+#articleForm{
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+}
+
+.SingleArticleContainer{
+    padding: 3%;
+}
+
+.articleButtons{
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 100%;
+}
+
+.articleButtons a {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: darkorange;
+    padding: 1%;
+    border-radius: 20px;
+}
+
+.articleButtons a + a {
+    margin-left: 1%;
+}

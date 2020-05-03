@@ -1,176 +1,368 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="sk">
 <head>
-    <meta charset="UTF-8">
-    <title>Menu</title>
-    <link rel="stylesheet" type="text/css" href="css/GeneralStyles.css">
-    <link rel="stylesheet" type="text/css" href="css/MenuStyles.css">
-    <link rel="stylesheet" type="text/css" href="css/FormStyles.css">
-    <link rel="stylesheet" href="css/Print.css" media="print">
+    <meta charset="UTF-8"/>
+    <meta name="author" content="David Cano"/>
 
+    <link rel="stylesheet" href="css/GeneralStyles.css" media="screen"/>
+    <link rel="stylesheet" href="css/FormStyles.css" media="screen"/>
+    <link rel="stylesheet" href="css/IndexStyles.css" media="screen"/>
+
+
+    <title>HC Košice</title>
 </head>
+
 <body>
+
 <header>
-    <h1>Menu</h1>
-</header>
-<div id="oznam" class="item">
-    <h2>OZNAM</h2>
-    <b>
-        Oznamujeme vám, že kvôli situácii ohľadom nového koronavírusu rozhodol Slovenský zväz ľadového hokeja o <span class="highlight">predčasnom
-        ukončení sezóny 2019/2020</span>
-    </b>
+    <h1>HC Košice</h1>
 
-</div>
 
-<div id="menu_box" class="item">
-    <div class="buttons">
-        <div class="button_container">
-            <a href="Article%20bootstrap%20alt.html" class="article_button button">
-                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
-                HC Košice vs. HKM Zvolen (bootstrap verzia)
-            </a>
-        </div>
+    <div class="menu">
+        <button id="menuTitle" onclick="displayOrHideMenu()">Menu</button>
 
-        <div class="button_container">
-            <a href="MouseVisualisation.html" class="article_button button">
-                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
-                Vizulizácie myše(doplnková úloha)
-            </a>
-        </div>
+        <nav id="menuIts" class="menu mnHide">
+            <a href="#welcome">Domov</a>
+            <a href="#articles">Články</a>
+            <a href="#opinions">Hodnotenia</a>
+            <a href="#addOpinion">Pridaj hodnotenie</a>
+            <a href="#artInsert">Pridaj článok</a>
+        </nav>
 
-        <div class="button_container">
-            <a href="Zvolen_vs_KE.html" class="article_button button">
-                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
-                HC Košice vs. HKM Zvolen
-            </a>
-        </div>
-
-        <div class="button_container">
-            <a href="supiska.html" class="article_button button">
-                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
-                Súpiska
-            </a>
-        </div>
-
-        <div class="button_container">
-            <a href="Kontakt.html" class="article_button button">
-                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
-                Kontakt
-            </a>
-        </div>
-
-        <div class="button_container">
-            <a href="SvgAnimacia.html" class="article_button button">
-                <img src="images/19550_13643__vyr_13642hc-kosice.png" height="397" width="400" alt="logo">
-                Animacia(doplnujuce)
-            </a>
-        </div>
     </div>
 
-    <img src="images/AR3I9727_0.jpg" width="1280" height="720" alt="menu obrazok" class="obrazok">
-</div>
+</header>
 
-<div class="small item"  id="form_stuff">
-    <form id="rating">
+<main id="router-view">
+</main>
+
+
+<footer>
+    <hr>
+    Dávid Čano 1.3.2019<br>
+    Kontakt: <a href="mailto:david.cano.gls@gmail.com">david.cano.gls@gmail.com</a>
+</footer>
+
+<!--Templates for html, dynamically inserted by the router -->
+
+
+<!--uvod -->
+<script id="template-welcome" type="text/template">
+    <article>
         <div class="label_div">
-            <h2 id="main_thing">Formulár pre spätnú väzbu <span id="form_output"></span>
-            </h2>
+            <h1>Vytajte!</h1>
         </div>
+        <p>
+            Vytajte na mojej stránke! Moje meno je <b>Dávid Čano</b>, študujem na <i>Technickej univerzite v
+            Košiciach</i>
+            a táto stránka je zameraná na môj obľúbený hokejový klub, <b>HC KOŠICE</b>
+        </p>
+    </article>
+</script>
+adasd
 
-        <div class="the_rest">
-            <div class="form_flex">
-                <div class="form_container">
-                    <p>
-                        <label for="name">Meno: </label>
-                        <input type="text" id="name" name="name" required>
-                    </p>
-                    <p>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="xxxx@xxxx.xx" required>
-                    </p>
-                    <p>
-                        <label for="pic_url">Obrázok:</label>
-                        <input type="url" id="pic_url" placeholder="URL adresa obrázka" name="pic_url">
-                    </p>
-                </div>
-                <fieldset class="form_container">
-                    <legend>Som:</legend>
-                    <input type="radio" id="fanusik" name="rola" value="Fanúšik">
-                    <label for="fanusik">Fanúšik HC Košice</label><br>
-                    <input type="radio" id="hrac" name="rola" value="Hráč">
-                    <label for="hrac">Hráč HC Košice</label><br>
-                    <input type="radio" id="novinar" name="rola" value="Novinár">
-                    <label for="novinar">Novinár</label><br>
-                    <input type="radio" id="ine" name="rola" value="Iné">
-                    <label for="ine">Iné</label>
-                </fieldset>
+<!--zoznam vsetkych clankov -->
+<script id="template-articles" type="text/template">
 
-                <fieldset class="form_container">
-                    <legend>Na stránke ma zaujalo:</legend>
-                    <input type="checkbox" id="clanky" name="zaujem" value="články">
-                    <label for="clanky">Články</label><br>
-                    <input type="checkbox" id="info" name="zaujem" value="informácie">
-                    <label for="info">Informácie o klube</label><br>
-                    <input type="checkbox" id="design" name="zaujem" value="design">
-                    <label for="design">Design</label><br>
-                </fieldset>
-            </div>
+    <div class="label_div">
+        <h2>
+            Články od {{min}} do {{max}}
+        </h2>
+    </div>
 
-            <div class="form_flex">
-                <div class="form_container">
-                    <br><label for="feedback">Komentár </label><br>
-                    <textarea name="feecback" id="feedback" rows="5" cols="50" placeholder="Tu zadaj komentár"
-                              required></textarea>
-                </div>
 
-                <div class="form_container">
-                    <label for="keyword">Kĺúčové slovo: </label>
-                    <input list="keywords" name="keyword" type="text" id="keyword">
-                    <datalist id="keywords">
-                        <option value="Hokej">
-                        <option value="Košice">
-                        <option value="Fanúšik">
-                        <option value="Koronavírus">
-                        <option value="Zápas">
-                    </datalist>
-                </div>
+    {{#.}}
+    <article class="articleContainer">
 
-                <div class="form_container" id="buttons">
-                    <button type="submit">Submit</button>
-                    <button type="reset">Reset</button>
-                </div>
-            </div>
+        <div class="label_div">
+            <h3>
+                <a href="{{detailLink}}">{{title}}</a>
+                <div style="font-size: 80%">by {{author}} <span style="float: right; margin-right: 2%">{{dateCreated}}</span></div>
+            </h3>
         </div>
+        <div class="contents">
+            {{{content}}}
+        </div>
+    </article>
+    {{/.}}
+    <div class="articleButtons">
+        <a href="#menuTitle">Back to the menu</a>
+        <a href="#articles/{{prevOffset}}/{{total}}" id="backButton"><< Previous page</a>
+        <a href="#articles/{{nextOffset}}/{{total}}" id="nextButton">Next page >></a>
+    </div>
 
-    </form>
+</script>
+
+<!--zoznam vsetkych clankov  error-->
+<script id="template-articles-error" type="text/template">
+    <article>
+        <h2>Articles acquisition failed</h2>
+        <p>
+            {{errMessage}}
+        </p>
+    </article>
+    <div class="articleButtons"><a href="#menuTitle">Back to the menu</a></div>
 
 
-</div>
+</script>
 
-<hr>
+<!--zoznam feedbackov -->
+<script id="template-opinions" type="text/template">
+    <div class="label_div">
+        <h2>Používateľské recenzie
+        </h2>
+    </div>
 
-
-<div id="FeedBackElement" class="item">
-    <div id="FeedbackContainer"></div>
-    <button onclick="delete_old_stuff()">Vymaž staré položky</button>
-</div>
-
-<script id="feedbackTemplate" type="text/template">
+    {{#.}}
     <div class="feedbackContainer">
-        <h3>{{name}} <small style="margin-left: 1%">{{role}}</small> <span style="float: right">{{createdDate}}</span></h3>
+        <h3>{{name}} <small style="margin-left: 1%">{{role}}</small> <span style="float: right">{{created}}</span></h3>
         <p><b>Na stránke sa mi páči:</b> {{interest}}</p>
         <p><b>Komentár:</b>
             {{comment}}
         </p>
     </div>
+    {{/.}}
+
+    <button onclick="delete_old_stuff()">Vymaž staré položky</button>
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"
-        integrity="sha256-MPgtcamIpCPKRRm1ppJHkvtNBAuE71xcOM+MmQytXi8="
-        crossorigin="anonymous">
-</script>
-<script src="js/process_form.js"></script>
+<!--pridaj clanok-->
+<script id="template-addArticle" type="text/template">
+    <article class="item">
+        <div class="label_div">
+            <h2>Pridaj vlastný článok</h2>
+        </div>
+        <form id="articleAdder" onsubmit="return makeArticle(event)">
+            <p>
+                <label for="ArticleTitle">Nadpis</label>
+                <input type="text" id="ArticleTitle" name="title" required>
+            </p>
 
+            <p>
+                <label for="title">Autor</label>
+                <input type="text" id="ArticleAuthor" name="author">
+            </p>
+
+            <p>
+                <label for="ArticleLink">Link na obrazok</label>
+                <input type="url" id="ArticleLink" placeholder="URL adresa obrázka" name="link">
+            </p>
+
+            <p>
+                <textarea name="content" id="ArticleContant" rows="5" cols="50" placeholder="Tu zadaj text článku"
+                          required></textarea>
+            </p>
+
+            <p>
+                <label for="ArticleTag">Kĺúčové slovo: </label>
+                <input list="articleTags" name="tags" type="text" id="ArticleTag">
+                <datalist id="articleTags">
+                    <option value="Hokej">
+                    <option value="Košice">
+                    <option value="Fanúšik">
+                    <option value="Koronavírus">
+                    <option value="Zápas">
+                </datalist>
+            </p>
+
+            <div class="form_container buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </article>
+</script>
+
+<!--formular na pridanie hodnotenia -->
+<script id="template-addOpinion" type="text/template">
+    <div class="item" id="form_stuff" onsubmit="return processData(event)">
+        <form id="rating">
+            <div class="label_div">
+                <h2 id="main_thing">Formulár pre spätnú väzbu
+                </h2>
+            </div>
+
+            <div class="the_rest">
+                <div class="form_flex">
+                    <div class="form_container">
+                        <p>
+                            <label for="name">Meno: </label>
+                            <input type="text" id="name" name="name" required>
+                        </p>
+                        <p>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="xxxx@xxxx.xx" required>
+                        </p>
+                        <p>
+                            <label for="pic_url">Obrázok:</label>
+                            <input type="url" id="pic_url" placeholder="URL adresa obrázka" name="pic_url">
+                        </p>
+                    </div>
+                    <fieldset class="form_container">
+                        <legend>Som:</legend>
+                        <input type="radio" id="fanusik" name="rola" value="Fanúšik">
+                        <label for="fanusik">Fanúšik HC Košice</label><br>
+                        <input type="radio" id="hrac" name="rola" value="Hráč">
+                        <label for="hrac">Hráč HC Košice</label><br>
+                        <input type="radio" id="novinar" name="rola" value="Novinár">
+                        <label for="novinar">Novinár</label><br>
+                        <input type="radio" id="ine" name="rola" value="Iné">
+                        <label for="ine">Iné</label>
+                    </fieldset>
+
+                    <fieldset class="form_container">
+                        <legend>Na stránke ma zaujalo:</legend>
+                        <input type="checkbox" id="clanky" name="zaujem" value="články">
+                        <label for="clanky">Články</label><br>
+                        <input type="checkbox" id="info" name="zaujem" value="informácie">
+                        <label for="info">Informácie o klube</label><br>
+                        <input type="checkbox" id="design" name="zaujem" value="design">
+                        <label for="design">Design</label><br>
+                    </fieldset>
+                </div>
+
+                <div class="form_flex">
+                    <div class="form_container">
+                        <br><label for="feedback">Komentár </label><br>
+                        <textarea name="feecback" id="feedback" rows="5" cols="50" placeholder="Tu zadaj komentár"
+                                  required></textarea>
+                    </div>
+
+                    <div class="form_container">
+                        <label for="keyword">Kĺúčové slovo: </label>
+                        <input list="keywords" name="keyword" type="text" id="keyword">
+                        <datalist id="keywords">
+                            <option value="Hokej">
+                            <option value="Košice">
+                            <option value="Fanúšik">
+                            <option value="Koronavírus">
+                            <option value="Zápas">
+                        </datalist>
+                    </div>
+
+                    <div class="form_container buttons">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+
+<!-- jeden clanok -->
+<script id="template-article" type="text/template">
+    <article>
+        <div class="label_div">
+            <h3>
+                <h3>{{title}}</h3>
+                <div style="font-size: 80%">by {{author}} <span style="float: right">{{dateCreated}}</span></div>
+            </h3>
+        </div>
+
+        <div class="SingleArticleContainer">
+            {{#imageLink}}
+            <figure>
+                <img src="{{imageLink}}" alt="article figure"/>
+            </figure>
+            {{/imageLink}}
+            <div>{{{content}}}</div>
+            <p>
+                Keywords:
+                {{tags}}
+            </p>
+        </div>
+    </article>
+
+    <div class="articleButtons">
+        <a href="{{backLink}}" class="linkAsButton"><< Back</a>
+        <a href="{{editLink}}" class="linkAsButton">Edit</a>
+        <a href="{{deleteLink}}" class="linkAsButton">Delete</a>
+        <a href="#menuTitle" class="linkAsButton">Up to the menu</a>
+    </div>
+</script>
+
+<!--editor clankov-->
+<script id="template-article-form" type="text/template">
+    <article class="item">
+        <div class="label_div">
+            <h3>
+                <h2>{{formTitle}}</h2>
+            </h3>
+        </div>
+
+        <div class="form_div">
+            <form id="articleForm" onsubmit="formSubmitCall">
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author" value="{{author}}" size="50"
+                       title="Article author, max. length 100 characters." maxlength="100"
+                       placeholder="e.g. Ján Trieska"/>
+                <br>
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" value="{{title}}" size="50" maxlength="100"
+                       pattern="\S[\S\s]*" required
+                       title="Article title, mandatory item, max. length: 100 characters, the first character must not be a space."
+                       placeholder="e.g. My story."/>
+                <br>
+                <label for="imageLink">Image (url):</label>
+                <input type="url" name="imageLink" id="imageLink" value="{{imageLink}}" size="50"
+                       title="Image URL, max. length 100 characters." maxlength="100"/>
+                <br>
+                <label></label>
+                <button type="button" id="btShowFileUpload" onclick="showFileUpload()">Upload image</button>
+
+                <fieldset class="added hiddenElm" id="fsetFileUpload">
+                    <legend>Image Upload</legend>
+                    <input type="file" id="flElm" name="file" accept="image/jpeg, image/png"/>
+                    <br/>
+                    <button type="button" id="btFileUpload" onclick="uploadImg('{{urlBase}}')">Send image to server
+                    </button>
+                    <button type="button" id="btCancelFileUpload" onclick="cancelFileUpload()">Cancel uploading</button>
+                </fieldset>
+
+
+                <br>
+                <label for="content">Article content:</label>
+                <textarea
+                        name="content" id="content" spellcheck="true" lang="sk"
+                        cols="50" rows="20" required
+                        title="Article content, mandatory item, can be plain text or in HTML.">{{content}}</textarea>
+                <br>
+                <label for="tags">Keywords:</label>
+                <input type="text" name="tags" id="tags" value="{{tags}}" size="50"
+                       title="Keyword list, comma separated." placeholder="e.g. village, drama"/>
+
+                <br>
+                <br>
+                <button type="reset">
+                    Reset Form
+                </button>
+                <button type="submit">
+                    {{submitBtTitle}}
+                </button>
+
+            </form>
+        </div>
+
+    </article>
+
+    <div class="articleButtons">
+        <a href="{{backLink}}" class="linkAsButton" ><< Back</a>
+        <a href="#menuTitle" class="linkAsButton" >Up to the menu</a>
+    </div>
+</script>
+
+<script src="js/mustache.min.js"></script>
+
+<script src="js/mainMenu.js"></script>
+
+<script src="js/addOpinion.js"></script>
+
+<script src="js/makeNewArticle.js"></script>
+
+<script src="js/handleArticleForms.js"></script>
+
+<script type="module" src="js/routerInit.js"></script>
 
 </body>
 </html>

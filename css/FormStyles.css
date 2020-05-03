@@ -11,8 +11,9 @@
 }
 
 form {
-    background-color: #e2e2e2;
     width: 100%;
+    padding: 2%;
+    background-color: transparent;
 }
 
 
@@ -47,19 +48,17 @@ label{
 
 #main_thing{
     margin-bottom: 2%;
-    padding-top: 0.1%;
+    padding-top: 2%;
     padding-bottom: 0.1%;
     padding-left: 2%;
-
-
 }
 
 .label_div{
     background: rgb(26,47,130);
     color: white;
     font-size: 1.5em;
+    padding-left: 0.5em;
 }
-
 .the_rest{
     margin-right: 2%;
 }
@@ -73,15 +72,6 @@ legend{
     font-weight: bold;
 }
 
-button{
-    width: 100%;
-}
-
-#buttons{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
 
 .invalid{
     color: red;
@@ -119,9 +109,6 @@ button{
 
     }
 
-    form  p  input{
-        float: right;
-    }
 
     #form_output{
         margin-left: 1em;

@@ -56,7 +56,8 @@ function feedback2html(feedback){
 function processData(event) {
     event.preventDefault();
 
-    let formElements = document.forms[0].elements;
+    // let formElements = document.forms[0].elements;
+    let formElements = formElement.elements;
 
     const Name = formElements["name"].value.trim();
     const Email = formElements["email"].value.trim();

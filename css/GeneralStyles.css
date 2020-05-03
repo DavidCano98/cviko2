@@ -103,9 +103,14 @@ hr{
     color: darkorange;
 }
 
+.articleContainer header{
+    background-color:transparent;
+    color: black;
+}
 
-
-
+.articleContainer hr{
+    display: none;
+}
 
 
 
