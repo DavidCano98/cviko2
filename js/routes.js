@@ -67,7 +67,7 @@ export default[
         hash:"profile",
         target:"router-view",
         getTemplate: (targetElm) =>
-             document.getElementById(targetElm).innerHTML = document.getElementById("").innerHTML
+             document.getElementById(targetElm).innerHTML = document.getElementById("template-login-info").innerHTML
     },
 
 ];
