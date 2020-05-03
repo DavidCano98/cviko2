@@ -66,18 +66,11 @@ export default[
     {
         hash:"profile",
         target:"router-view",
-        getTemplate: displayUserInfo
+        getTemplate: (targetElm) =>
+             document.getElementById(targetElm).innerHTML = document.getElementById("").innerHTML
     },
 
 ];
-
-function displayUserInfo(targetElm) {
-    let template = document.getElementById("template-login-info").innerText;
-    let dataToDisplay = getUserInfo();
-    console.log(dataToDisplay);
-
-    document.getElementById(targetElm).innerHTML = Mustache.render(template,dataToDisplay);
-}
 
 function addArtDetailLink2ResponseJson(responseJSON){
     responseJSON.articles =
