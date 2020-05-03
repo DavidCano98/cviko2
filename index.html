@@ -20,8 +20,6 @@
     <div id="SignInButton"></div>
 </aside>
 
-<div id="userStatus"></div>
-
 <header>
     <h1>HC Košice</h1>
 
@@ -75,7 +73,7 @@ adasd
 
     <div class="label_div">
         <h2>
-            Články od {{min}} do {{max}}
+            Články od {{min}} - {{max}} z {{total}}
         </h2>
     </div>
 
@@ -150,7 +148,7 @@ adasd
 
             <p>
                 <label for="title">Autor</label>
-                <input type="text" id="ArticleAuthor" name="author">
+                <input type="text" id="ArticleAuthor" name="author" class="Author">
             </p>
 
             <p>
@@ -197,11 +195,11 @@ adasd
                     <div class="form_container">
                         <p>
                             <label for="name">Meno: </label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" class="Author" required>
                         </p>
                         <p>
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" placeholder="xxxx@xxxx.xx" required>
+                            <input type="email" id="email" name="email" class="Email" placeholder="xxxx@xxxx.xx" required>
                         </p>
                         <p>
                             <label for="pic_url">Obrázok:</label>
@@ -362,12 +360,24 @@ adasd
     </div>
 </script>
 
-
+<!--login status-->
 <script id="template-login-info" type="text/template">
     <article class="item">
         <div class="label_div">
             <h2>Môj profil</h2>
         </div>
+
+        <div id="userStatus">
+            <ul>
+                <li>  <b>ID:</b> ${{ID}}}
+                <li>  <b>Celé meno:</b> {{fullName}}
+                <li>  <b>Krstné meno:</b> {{FirstName}}
+                <li>  <b>Priezvisko:</b> {{LastName}}
+                <li>  <b>URL obrázka:</b> {{ImgURL}}
+                <li>  <b>Email:</b> {{Email}}
+            </ul>
+        </div>
+        </span> <button onclick="signOut()" id="signOutButton">Odhlásiť sa / Sign Out</button>
 
     </article>
 </script>
@@ -376,7 +386,9 @@ adasd
 
 <script src="js/mainMenu.js"></script>
 
+
 <script src="js/addOpinion.js"></script>
+
 
 <script src="js/makeNewArticle.js"></script>
 
@@ -386,6 +398,7 @@ adasd
 
 <script src="js/GoogleSignIn.js"></script>
 <script src="https://apis.google.com/js/platform.js?onload=startGSingIn" async defer></script>
+
 
 </body>
 </html>

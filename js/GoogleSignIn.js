@@ -1,83 +1,80 @@
 let auth2 = {};
 
+function renderUserInfo(googleUser, htmlElmId) {
+    const data = getUserInfo(googleUser);
+    const template = document.getElementById("template-login-info").innerHTML;
 
+    if (template && data) {
+        document.getElementById(htmlElmId).innerHTML = Mustache.render(template, data);
+    }
+}
 
-function renderUserInfo(googleUser, targetElement) {
+function getUserInfo(googleUser) {
     const profile = googleUser.getBasicProfile();
-    document.getElementById(targetElement).innerHTML=`
-            <ul>
-                <li> <b>ID</b>: ${profile.getId()}
-                <li>  <b>Plné meno</b>: ${profile.getName()}
-                <li>  <b>Krstné meno</b>: ${profile.getGivenName()}
-                <li>  <b>Priezvisko</b>: ${profile.getFamilyName()}
-                <li>  <b>URL obrázka</b>: ${profile.getImageUrl()}
-                <li>  <b>Email</b>: ${profile.getEmail()}
-            </ul>
-        `;
+
+    if (profile) return {
+        ID: profile.getId(),
+        FullName: profile.getName(),
+        FirstName: profile.getGivenName(),
+        LastName: profile.getFamilyName(),
+        ImgURL: profile.getImageUrl(),
+        Email: profile.getEmail()
+    }
 }
 
 function renderLogOutInfo(htmlElmId) {
-    document.getElementById(htmlElmId).innerHTML="Neprihlásený";
+    document.getElementById(htmlElmId).innerHTML = `
+                <p style="color: red">Pužívateľ nie je prihlásený</p>
+                `;
 }
 
 function signOut() {
-    if(auth2.signOut) auth2.signOut();
-    if(auth2.disconnect) auth2.disconnect();
+    if (auth2.signOut) auth2.signOut();
+    if (auth2.disconnect) auth2.disconnect();
 
+
+    updateSignIn("router-view")
 }
 
+function userChanged() {
+    var userInfoElm = document.getElementById("router-view");
 
-function userChanged(user){
-    document.getElementById("userName").innerHTML=user.getBasicProfile().getName();
-
-
-    var userInfoElm = document.getElementById("userStatus");
-    var userNameInputElm = document.getElementById("author");
-
-    if(userInfoElm ){// pre/for 82GoogleAccessBetter.html
-        renderUserInfo(user,"userStatus");
-    }else if (userNameInputElm){// pre 82GoogleAccessBetterAddArt.html
-        userNameInputElm.value=user.getBasicProfile().getName();
+    fillOutForms();
+    if (userInfoElm) {// pre/for 82GoogleAccessBetter.html
+        updateSignIn("router-view");
     }
-
 }
 
 
-var updateSignIn = function() {
+var updateSignIn = function () {
+    let buttonSignOut = document.getElementById("signOutButton");
+
     var sgnd = auth2.isSignedIn.get();
     if (sgnd) {
         document.getElementById("SignInButton").classList.add("hidden");
-        document.getElementById("SignedIn").classList.remove("hidden");
-        document.getElementById("userName").innerHTML=auth2.currentUser.get().getBasicProfile().getName();
-    }else{
+        if (buttonSignOut) {
+            document.getElementById("signOutButton").classList.remove("hidden")
+        }
+    } else {
         document.getElementById("SignInButton").classList.remove("hidden");
-        document.getElementById("SignedIn").classList.add("hidden");
+        if (buttonSignOut) {
+            document.getElementById("signOutButton").classList.add("hidden")
+        }
     }
 
-    var userInfoElm = document.getElementById("userStatus");
-    var userNameInputElm = document.getElementById("author");
 
-    if(userInfoElm ){// pre 82GoogleAccessBetter.html
+    if (location.hash === "#profile") {
         if (sgnd) {
-            renderUserInfo(auth2.currentUser.get(),"userStatus");
+            renderUserInfo(auth2.currentUser.get(), "router-view");
 
-        }else{
-            renderLogOutInfo("userStatus");
+        } else {
+            renderLogOutInfo("router-view");
         }
-    }else if (userNameInputElm){// pre/for 82GoogleAccessBetterAddArt.html
-        if (sgnd) {
-            userNameInputElm.value=auth2.currentUser.get().getBasicProfile().getName();
-        }else{
-            userNameInputElm.value="";
-        }
-
-
     }
-
-}
+};
 
 function startGSingIn() {
-    gapi.load('auth2', function() {
+    gapi.load('auth2', function () {
         gapi.signin2.render('SignInButton', {
             'width': 240,
             'height': 50,
@@ -87,7 +84,7 @@ function startGSingIn() {
             'onfailure': onFailure
         });
         gapi.auth2.init().then( //zavolat po inicializĂˇcii OAuth 2.0  (called after OAuth 2.0 initialisation)
-            function (){
+            function () {
                 console.log('init');
                 auth2 = gapi.auth2.getAuthInstance();
                 auth2.currentUser.listen(userChanged);
@@ -101,6 +98,33 @@ function startGSingIn() {
 function onSuccess(googleUser) {
     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
 }
+
 function onFailure(error) {
     console.log(error);
+}
+
+function fillOutForms() {
+    let data = getUserInfo(auth2.currentUser.get());
+
+    let AuthorElements = document.getElementsByClassName("Author");
+    let EmailElements = document.getElementsByClassName("Email");
+    let i;
+
+    for (i=0; i<AuthorElements.length; i++) {
+        if (auth2.isSignedIn.get()) {
+            AuthorElements[i].value = data.FullName;
+        }
+        else {
+            AuthorElements[i].value = "";
+        }
+    }
+
+    for (i=0; i<EmailElements.length; i++) {
+        if (auth2.isSignedIn.get()) {
+            EmailElements[i].value = data.Email;
+        }
+        else {
+            EmailElements[i].value = "";
+        }
+    }
 }
