@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="author" content="David Cano"/>
+    <meta name="google-signin-client_id" content="703760847230-nordq8lh8360u0h3vu1umpnoa9rmvcju.apps.googleusercontent.com">
 
     <link rel="stylesheet" href="css/GeneralStyles.css" media="screen"/>
     <link rel="stylesheet" href="css/FormStyles.css" media="screen"/>
@@ -13,7 +14,13 @@
 </head>
 
 <body>
-<meta name="google-signin-client_id" content="703760847230-nordq8lh8360u0h3vu1umpnoa9rmvcju.apps.googleusercontent.com">
+
+<aside id="googleSignIn">
+    <div id="SignInButton"></div>
+    <div id="SignedIn">
+        Ste prihlásený ako (You are signed in as) <span id="userName"></span> <button onclick="signOut()">Odhlásiť sa / Sign Out</button>
+    </div>
+</aside>
 
 <header>
     <h1>HC Košice</h1>
