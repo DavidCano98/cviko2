@@ -17,7 +17,7 @@ function renderUserInfo(googleUser, htmlElmId) {
         `;
 
     //Id z profile.getId() sa nema pouzivat na komunikaciu s vlastnym serverom (you should not use the id from profile.getId() for communication with your server)
-    document.getElementById("userStatus").innerHTML=htmlStringSk+htmlStringEn;
+    document.getElementById("userStatus").innerHTML=htmlStringSk;
 }
 
 function renderLogOutInfo(htmlElmId) {
