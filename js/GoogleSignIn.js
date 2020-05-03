@@ -1,5 +1,6 @@
 let auth2 = {};
 
+
 function renderUserInfo(googleUser, htmlElmId) {
     const profile = googleUser.getBasicProfile();
     const htmlStringSk=
