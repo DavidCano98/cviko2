@@ -2,30 +2,22 @@ let auth2 = {};
 
 
 
-function renderUserInfo(googleUser, htmlElmId) {
+function renderUserInfo(googleUser, targetElement) {
     const profile = googleUser.getBasicProfile();
-    const htmlStringSk=
-        `
-            <p>Not logged in</p>
+    document.getElementById(targetElement).innerHTML=`
             <ul>
-                <li> ID: ${profile.getId()}
-                <li>  Celé meno: ${profile.getName()}
-                <li>  Krstné meno: ${profile.getGivenName()}
-                <li>  Priezvisko: ${profile.getFamilyName()}
-                <li>  URL obrázka: ${profile.getImageUrl()}
-                <li>  Email: ${profile.getEmail()}
+                <li> <b>ID</b>: ${profile.getId()}
+                <li>  <b>Plné meno</b>: ${profile.getName()}
+                <li>  <b>Krstné meno</b>: ${profile.getGivenName()}
+                <li>  <b>Priezvisko</b>: ${profile.getFamilyName()}
+                <li>  <b>URL obrázka</b>: ${profile.getImageUrl()}
+                <li>  <b>Email</b>: ${profile.getEmail()}
             </ul>
         `;
-
-    //Id z profile.getId() sa nema pouzivat na komunikaciu s vlastnym serverom (you should not use the id from profile.getId() for communication with your server)
-    document.getElementById("userStatus").innerHTML=htmlStringSk;
 }
 
 function renderLogOutInfo(htmlElmId) {
-    const htmlString=
-        `
-                <p>"Používateľ neprihlásený˝</p>`;
-    document.getElementById(htmlElmId).innerHTML=htmlString;
+    document.getElementById(htmlElmId).innerHTML="Neprihlásený";
 }
 
 function signOut() {
@@ -34,17 +26,6 @@ function signOut() {
 
 }
 
-function getUserInfo(user) {
-    const profile = user.getBasicProfile();
-
-    return {
-        id: profile.getId(),
-        fullName: profile.getName(),
-        firstName: profile.getGivenName(),
-        lastName: profile.getFamilyName(),
-        email: profile.getEmail()
-    };
-}
 
 function userChanged(user){
     document.getElementById("userName").innerHTML=user.getBasicProfile().getName();
